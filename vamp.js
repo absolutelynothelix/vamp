@@ -28,7 +28,7 @@ const process_message = line => {
 		spec_message = `\x1B[37m${spec_message}\x1B[39m`;
 	}
 
-	if (vuid.includes('UNASSIGNED')) {
+	if (vuid.includes('BestPractices')) {
 		message = message.replace('[AMD]', '[\x1B[38;2;237;28;36mAMD\x1B[39m]');
 		message = message.replace('[Arm]', '[\x1B[38;2;0;145;189mARM\x1B[39m]');
 		message = message.replace('[IMG]', '[\x1B[38;2;114;35;135mIMG\x1B[39m]');
