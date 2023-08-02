@@ -68,7 +68,7 @@ const process_details = line => {
 			10: 'VK_OBJECT_TYPE_IMAGE'
 		}[type] || type;
 
-		if (name == 'NULL') {
+		if (name === 'NULL') {
 			name = `Unnamed ${type}`;
 		}
 
