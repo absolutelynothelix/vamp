@@ -49,7 +49,7 @@ const process_details = line => {
 	}
 
 	if (line.includes('Objects: ')) {
-		console.log(`\x1B[37m${line.match(/\d+/)[0]} referenced objects:`);
+		console.log(`\x1B[37m${line.match(/\d+/)[0]} referenced objects:\x1B[39m`);
 
 		return;
 	}
