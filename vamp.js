@@ -136,7 +136,7 @@ process.stdin.on('data', data => {
 			continue;
 		}
 
-		if (line.startsWith('VUID') || line.startsWith('UNASSIGNED') || line.startsWith('CHASSIS')) {
+		if (['WARNING', 'VUID', 'SYNC', 'BestPractices'].some(prefix => line.startsWith(prefix))) {
 			process_message(line);
 		} else {
 			process_details(line);
