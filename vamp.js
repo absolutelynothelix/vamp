@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const process_message = line => {
+const processMessage = line => {
 	console.log('');
 
 	let severity = line.match(/Validation [^:]+/)[0];
@@ -21,11 +21,11 @@ const process_message = line => {
 	let message = line.split(' | ');
 	message = message[message.length - 1];
 
-	let spec_message = message.match(/The Vulkan spec states: .+$/);
-	if (spec_message) {
-		spec_message = spec_message[0];
-		message = message.replace(spec_message, '');
-		spec_message = `\x1B[37m${spec_message}\x1B[39m`;
+	let specMessage = message.match(/The Vulkan spec states: .+$/);
+	if (specMessage) {
+		specMessage = specMessage[0];
+		message = message.replace(specMessage, '');
+		specMessage = `\x1B[37m${specMessage}\x1B[39m`;
 	}
 
 	if (vuid.includes('BestPractices')) {
@@ -36,12 +36,12 @@ const process_message = line => {
 	}
 
 	console.log(message);
-	if (spec_message) {
-		console.log(spec_message);
+	if (specMessage) {
+		console.log(specMessage);
 	}
 };
 
-const process_details = line => {
+const processDetails = line => {
 	if (!line.startsWith(' ')) {
 		console.log(line);
 
@@ -143,9 +143,9 @@ process.stdin.on('data', data => {
 		}
 
 		if (['WARNING', 'VUID', 'SYNC', 'BestPractices'].some(prefix => line.startsWith(prefix))) {
-			process_message(line);
+			processMessage(line);
 		} else {
-			process_details(line);
+			processDetails(line);
 		}
 	}
 });
