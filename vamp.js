@@ -58,9 +58,9 @@ const process_details = line => {
 	}
 
 	if (line.includes(', name: ')) {
-		const number = parseInt(line.match(/(?<=\[)\d+/)[0]) + 1;
+		const number = Number.parseInt(line.match(/(?<=\[)\d+/)[0]) + 1;
 		const handle = line.match(/0x[0-9a-f]+/)[0];
-		let type = parseInt(line.match(/(?<=type: )\d+/)[0]);
+		let type = Number.parseInt(line.match(/(?<=type: )\d+/)[0]);
 		let name = line.match(/(?<=name: ).+/)[0];
 
 		type = {
